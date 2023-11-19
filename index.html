@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shorcut icon" href="img/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Для поиска в сети-->
+    <meta name="description" content="Рады видеть Вас на нашем сайте.">
+    <meta property="og:title" content="Здоровое питание">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="здесь ссылка на сайт">
+    <meta property="og:image" content="img/ogImage.jpg">
+    <meta name="keywords" content="Здоровое питание, еда, здоровье">
+    <!-- //Для поиска в сети-->
+    <!-- Для анимациия при прокрутке страницы -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+    <title>HEALTHY SWITCHER</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1 class="visually-hidden">Я для семантики</h1>
+      <header class="header">
+        <div class="header__top">
+          <div class="header__body" data-container>
+            <a class="header__logo" href="#">
+              <img class="header__logo-img" src="img/logo.svg" alt="Логотип HEALTHY SWITCHER">
+            </a>
+            <div class="header__block">
+              <button class="header__burger burger" id="burger" onclick="this.classList.toggle('burger-active')">
+                <svg class="header__svg" version="1.1" height="100" width="100" viewbox="0 0 100 100">
+                  <path class="line line1" d="M 50,65 H 70 C 70,65 75,65.198488 75,70.762712 C 75,73.779026 74.368822,78.389831 66.525424,78.389831 C 22.092231,78.389831 -18.644068,-30.508475 -18.644068,-30.508475" />
+                  <path class="line line2" d="M 50,35 H 70 C 70,35 81.355932,35.300135 81.355932,25.635593 C 81.355932,20.906215 78.841706,14.830508 72.881356,14.830508 C 35.648232,14.830508 -30.508475,84.322034 -30.508475,84.322034" />
+                  <path class="line line3" d="M 50,50 H 30 C 30,50 12.288136,47.749959 12.288136,60.169492 C 12.288136,67.738339 16.712974,73.305085 40.677966,73.305085 C 73.791674,73.305085 108.47458,-19.915254 108.47458,-19.915254" />
+                  <path class="line line4" d="M 50,50 H 70 C 70,50 81.779661,50.277128 81.779661,36.607372 C 81.779661,28.952694 77.941689,25 69.067797,25 C 39.95532,25 -16.949153,119.91525 -16.949153,119.91525" />
+                  <path class="line line5" d="M 50,65 H 30 C 30,65 17.79661,64.618439 17.79661,74.152543 C 17.79661,80.667556 25.093813,81.355932 38.559322,81.355932 C 89.504001,81.355932 135.59322,-21.186441 135.59322,-21.186441" />
+                  <path class="line line6" d="M 50,35 H 30 C 30,35 16.525424,35.528154 16.525424,24.152542 C 16.525424,17.535987 22.597755,13.559322 39.40678,13.559322 C 80.617882,13.559322 94.067797,111.01695 94.067797,111.01695" />
+                </svg>
+                <svg class="header__x" version="1.1" height="100" width="100" viewbox="0 0 100 100">
+                  <path class="line" d="M 34,32 L 66,68" />
+                  <path class="line" d="M 66,32 L 34,68" />
+                </svg>
+              </button>
+              <div class="header__menu menu" id="menu">
+                <nav class="header__nav">
+                  <ul class="header__list">
+                    <li class="header__item">
+                      <a class="header__link header__link--active" href="index.html" aria-label="Ссылка">Menu</a>
+                    </li>
+                    <li class="header__item">
+                      <a class="header__link " href="#" aria-label="Ссылка">Recipes</a>
+                    </li>
+                    <li class="header__item">
+                      <a class="header__link " href="#" aria-label="Ссылка">Chefs</a>
+                    </li>
+                    <li class="header__item">
+                      <a class="header__link " href="#" aria-label="Ссылка">Contacts</a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>                
+            </div> 
+          </div>
+        </div>
+        <div class="header__bottom">
+          <div class="header__block-food" data-container>
+            <h2 class="header__h2 h2" data-aos="fade-down">
+              Your <span>Favourite Food</span> Delivered <span>Hot &amp; Fresh</span>
+            </h2>
+            <p class="header__desc" data-aos="fade-down">
+              <span>HEALTHY SWITCHER</span> chefs do&nbsp;all the prep work, like peeling, chopping &amp; marinating, so&nbsp;you can cook a&nbsp;fresh homemade dinner in&nbsp;just 15&nbsp;minutes.
+            </p>
+            <button class="header__btn btn" data-aos="fade-up">Order Now</button>
+            <ul class="header__cards" data-aos="fade-up">
+              <li class="header__info">
+                <div class="header__img">
+                  <img src="img/icon-header/01.png" alt="Часы">
+                </div>
+                <div class="header__text">Today 10:00 am - 7:00 pm</div>
+                <span class="header__gray">Working hours</span>
+              </li>
+              <li class="header__info">
+                <div class="header__img">
+                  <img src="img/icon-header/02.png" alt="Телеграмм">
+                </div>
+                <div class="header__text">Velyka Vasylkivska 100</div>
+                <span class="header__gray">Get Directions</span>
+              </li>
+              <li class="header__info header__info_margin">
+                <div class="header__img">
+                  <img src="img/icon-header/03.png" alt="Телефон">
+                </div>
+                <a class="header__tel" href="tel:+38(063)833-24-15">+38 (063)833 24 15</a>
+                <span class="header__gray">Call Online</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </header> 
+      <main>
+        <section class="about">
+          <div class="about__body" data-container>
+            <div class="about__block" data-aos="flip-right" data-aos-duration="1000">
+              <div class="about__title title" data-aos="fade-down" data-aos-delay="200">
+                <h2 class="title__h2 h2">
+                  The Basics Of Healthy Food
+                </h2>
+              </div>
+              <p class="about__desc desc" data-aos="fade-down" data-aos-delay="300">
+                In&nbsp;aliqua ea&nbsp;ullamco ad&nbsp;est ex&nbsp;non deserunt nulla. Consectetur sint ea&nbsp;aliquip aliquip consectetur voluptate est. Eu&nbsp;minim dolore laboris enim mollit voluptate irure esse aliquip.
+              </p>
+              <!-- Swiper -->
+              <div class="about__swiper about__swiper_desktop mySwiper-desktop">
+                <button class="about__btn about__btn_prev" tabindex="0" aria-label="Prev slide" aria-disabled="false" data-aos="fade-right" data-aos-delay="120" data-aos-easing="ease-in-sine">
+                  <svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <mask id="mask228" style="mask-type:luminance" x="0" y="0" width="16" height="16">
+                    <path d="M16 7H3.83L9.42 1.41L8 0L0 8L8 16L9.41 14.59L3.83 9H16V7Z" fill="white"/>
+                    </mask>
+                    <g mask="url(#mask228)">
+                    <rect x="-5" y="-5" width="26" height="26" fill="#4D4D4D"/>
+                    </g>
+                  </svg>
+                </button>
+                <button class="about__btn about__btn_next" tabindex="0" aria-label="Next slide" aria-disabled="false" data-aos="fade-left" data-aos-delay="120" data-aos-easing="ease-in-sine">
+                  <svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <mask id="mask229" style="mask-type:luminance" x="0" y="0" width="16" height="16">
+                    <path d="M0 7H12.17L6.58 1.41L8 0L16 8L8 16L6.59 14.59L12.17 9H0V7Z" fill="white"/>
+                    </mask>
+                    <g mask="url(#mask229)">
+                    <rect width="26" height="26" transform="matrix(-1 0 0 1 21 -5)" fill="#4D4D4D"/>
+                    </g>
+                  </svg>
+                </button> 
+                <ul class="about__wrapper swiper-wrapper">
+                  <li class="about__slide swiper-slide">
+                    <!-- <img src="https://swiperjs.com/demos/images/nature-1.jpg" data-aos="zoom-in" data-aos-offset="100" data-aos-easing="ease-in-sine" /> -->
+                    <img src="img/about-01.jpg" alt="картинка 1" data-aos="zoom-in" data-aos-offset="100" data-aos-easing="ease-in-sine" />
+                  </li>
+                  <li class="about__slide swiper-slide">
+                    <!-- <img src="https://swiperjs.com/demos/images/nature-2.jpg" data-aos="zoom-in" data-aos-offset="100" data-aos-easing="ease-in-sine" /> -->
+                    <img src="img/about-02.jpg" alt="картинка 2" data-aos="zoom-in" data-aos-offset="100" data-aos-easing="ease-in-sine" />
+                  </li>
+                  <li class="about__slide swiper-slide">
+                    <!-- <img src="https://swiperjs.com/demos/images/nature-3.jpg" data-aos="zoom-in" data-aos-offset="100" data-aos-easing="ease-in-sine" /> -->
+                    <img src="img/about-01.jpg" alt="картинка 3" data-aos="zoom-in" data-aos-offset="100" data-aos-easing="ease-in-sine" />
+                  </li>
+                  <li class="about__slide swiper-slide">
+                    <!-- <img src="https://swiperjs.com/demos/images/nature-4.jpg" data-aos="zoom-in" data-aos-offset="100" data-aos-easing="ease-in-sine" /> -->
+                    <img src="img/about-02.jpg" alt="картинка 4" data-aos="zoom-in" data-aos-offset="100" data-aos-easing="ease-in-sine" />
+                  </li>
+                  <li class="about__slide swiper-slide">
+                    <!-- <img src="https://swiperjs.com/demos/images/nature-3.jpg" data-aos="zoom-in" data-aos-offset="100" data-aos-easing="ease-in-sine" /> -->
+                    <img src="img/about-01.jpg" alt="картинка 5" data-aos="zoom-in" data-aos-offset="100" data-aos-easing="ease-in-sine" />
+                  </li>
+                  <li class="about__slide swiper-slide">
+                    <!-- <img src="https://swiperjs.com/demos/images/nature-4.jpg" data-aos="zoom-in" data-aos-offset="100" data-aos-easing="ease-in-sine" /> -->
+                    <img src="img/about-02.jpg" alt="картинка 6" data-aos="zoom-in" data-aos-offset="100" data-aos-easing="ease-in-sine" />
+                  </li>
+                </ul>
+                <!-- <div class="swiper-pagination"></div> -->
+              </div>
+              <div class="about__swiper about__swiper_mobili mySwiper-mobili">
+                <ul class="about__wrapper swiper-wrapper">
+                  <li class="about__slide swiper-slide">
+                    <!-- <img src="https://swiperjs.com/demos/images/nature-1.jpg" data-aos="zoom-in" data-aos-offset="100" data-aos-easing="ease-in-sine" /> -->
+                    <img src="img/about-01.jpg" alt="картинка 1" data-aos="zoom-in" data-aos-offset="100" data-aos-easing="ease-in-sine" />
+                  </li>
+                  <li class="about__slide swiper-slide">
+                    <!-- <img src="https://swiperjs.com/demos/images/nature-2.jpg" data-aos="zoom-in" data-aos-offset="100" data-aos-easing="ease-in-sine" /> -->
+                    <img src="img/about-02.jpg" alt="картинка 2" data-aos="zoom-in" data-aos-offset="100" data-aos-easing="ease-in-sine" />
+                  </li>
+                  <li class="about__slide swiper-slide">
+                    <!-- <img src="https://swiperjs.com/demos/images/nature-3.jpg" data-aos="zoom-in" data-aos-offset="100" data-aos-easing="ease-in-sine" /> -->
+                    <img src="img/about-01.jpg" alt="картинка 3" data-aos="zoom-in" data-aos-offset="100" data-aos-easing="ease-in-sine" />
+                  </li>
+                  <li class="about__slide swiper-slide">
+                    <!-- <img src="https://swiperjs.com/demos/images/nature-4.jpg" data-aos="zoom-in" data-aos-offset="100" data-aos-easing="ease-in-sine" /> -->
+                    <img src="img/about-02.jpg" alt="картинка 4" data-aos="zoom-in" data-aos-offset="100" data-aos-easing="ease-in-sine" />
+                  </li>
+                  <li class="about__slide swiper-slide">
+                    <!-- <img src="https://swiperjs.com/demos/images/nature-3.jpg" data-aos="zoom-in" data-aos-offset="100" data-aos-easing="ease-in-sine" /> -->
+                    <img src="img/about-01.jpg" alt="картинка 5" data-aos="zoom-in" data-aos-offset="100" data-aos-easing="ease-in-sine" />
+                  </li>
+                  <li class="about__slide swiper-slide">
+                    <!-- <img src="https://swiperjs.com/demos/images/nature-4.jpg" data-aos="zoom-in" data-aos-offset="100" data-aos-easing="ease-in-sine" /> -->
+                    <img src="img/about-02.jpg" alt="картинка 6" data-aos="zoom-in" data-aos-offset="100" data-aos-easing="ease-in-sine" />
+                  </li>
+                </ul>
+                <div class="about__navigation">
+                  <button class="about__btn about__btn_prev" tabindex="0" aria-label="Prev slide" aria-disabled="false" data-aos="fade-right" data-aos-delay="120" data-aos-easing="ease-in-sine">
+                    <svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <mask id="mask228-mobile" style="mask-type:luminance" x="0" y="0" width="16" height="16">
+                      <path d="M16 7H3.83L9.42 1.41L8 0L0 8L8 16L9.41 14.59L3.83 9H16V7Z" fill="white"/>
+                      </mask>
+                      <g mask="url(#mask228-mobile)">
+                      <rect x="-5" y="-5" width="26" height="26" fill="#4D4D4D"/>
+                      </g>
+                    </svg>
+                  </button>
+                  <button class="about__btn about__btn_next" tabindex="0" aria-label="Next slide" aria-disabled="false" data-aos="fade-left" data-aos-delay="120" data-aos-easing="ease-in-sine">
+                    <svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <mask id="mask229-mobile" style="mask-type:luminance" x="0" y="0" width="16" height="16">
+                      <path d="M0 7H12.17L6.58 1.41L8 0L16 8L8 16L6.59 14.59L12.17 9H0V7Z" fill="white"/>
+                      </mask>
+                      <g mask="url(#mask229-mobile)">
+                      <rect width="26" height="26" transform="matrix(-1 0 0 1 21 -5)" fill="#4D4D4D"/>
+                      </g>
+                    </svg>
+                  </button>
+                </div>               
+              </div>
+            </div>
+          </div>
+        </section>  
+        <section class="work">
+          <div class="work__body" data-container>
+            <div class="work__title title" data-aos="fade-down" data-aos-delay="200">
+              <h2 class="title__h2 h2">
+                How It Works
+              </h2>
+            </div>
+            <ul class="work__list">
+              <li class="work__item" data-aos="zoom-in-right" data-aos-duration="700">
+                <h3 class="work__h3 h3">Pick Meals</h3>
+                <p class="work__desc desc">
+                  Choose your meals from our diverse weekly menu. Find gluten or&nbsp;dairy free, low carb &amp;&nbsp;veggie options.
+                </p>
+              </li>
+              <li class="work__item" data-aos="zoom-in-up" data-aos-duration="700">
+                <h3 class="work__h3 h3">Choose How Often</h3>
+                <p class="work__desc desc">
+                  Our team of&nbsp;chefs do&nbsp;the prep work&nbsp;&mdash; no&nbsp;more chopping, measuring, or&nbsp;sink full of&nbsp;dishes!
+                </p>
+              </li>
+              <li class="work__item" data-aos="zoom-in-down" data-aos-duration="700">
+                <h3 class="work__h3 h3">Fast Deliveries</h3>
+                <p class="work__desc desc">
+                  Your freshly prepped 15-min dinner kits arrive on&nbsp;your doorstep in&nbsp;a&nbsp;refrigerated box.
+                </p>
+              </li>
+              <li class="work__item" data-aos="zoom-in-left" data-aos-duration="700">
+                <h3 class="work__h3 h3">Tasty Meals</h3>
+                <p class="work__desc desc">
+                  Gobble makes cooking fast, so&nbsp;you have more time to&nbsp;unwind and be&nbsp;with family.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </section>  
+        <section class="dishes">
+          <div class="dishes__body" data-container>
+            <div class="dishes__title title" data-aos="fade-down" data-aos-delay="200">
+              <h2 class="title__h2 h2">
+                Dish Of The Day
+              </h2>
+            </div>
+            <ul class="dishes__list">
+              <li class="dishes__item">
+                <div class="dishes__img">
+                  <img src="img/img-dishes/01.jpg" alt="dishes-1">
+                </div>
+                <div class="dishes__info">
+                  <div class="dishes__block">
+                    <!--Блок для выравнивание текста-->
+                    <h3 class="dishes__h3 h3">
+                      Featured Meal
+                    </h3>
+                    <h4 class="dishes__h4 h4">
+                      Served with french fries + drink
+                    </h4>
+                    <p class="dishes__desc desc">
+                      Choice of: Coke, Fanta, Sprite, Upgrade to&nbsp;large fries, Add whopper patty, Add Tender crisp patty and more...
+                    </p>
+                  </div>
+                  <div class="dishes__action">
+                    <ul class="dishes__rating">
+                      <li class="dishes__star">
+                        <img src="img/icon-stars/yellow-1.svg" alt="Лайк на единицу">
+                      </li>
+                      <li class="dishes__star">
+                        <img src="img/icon-stars/yellow-1.svg" alt="Лайк на двойку">
+                      </li>
+                      <li class="dishes__star">
+                        <img src="img/icon-stars/yellow-1.svg" alt="Лайк на тройку">
+                      </li>
+                      <li class="dishes__star">
+                        <img src="img/icon-stars/yellow-0.5.svg" alt="Лайк на четвёрку">
+                      </li>
+                      <li class="dishes__star">
+                        <img src="img/icon-stars/yellow-0.svg" alt="Лайк на пятёрку">
+                      </li>
+                    </ul>
+                    <a class="dishes__btn btn" href="#">order</a>
+                  </div>
+
+
+
+                  
+
+
+
+
+                </div>
+              </li> 
+              <li class="dishes__item">
+                <div class="dishes__img">
+                  <img src="img/img-dishes/02.jpg" alt="dishes-2">
+                </div>
+                <div class="dishes__info">
+                  <div class="dishes__block">
+                    <!--Блок для выравнивание текста-->
+                    <h3 class="dishes__h3 h3">
+                      Featured Meal
+                    </h3>
+                    <h4 class="dishes__h4 h4">
+                      Served with french fries + drink
+                    </h4>
+                    <p class="dishes__desc desc">
+                      Choice of: Coke, Fanta, Sprite, Upgrade to&nbsp;large fries, Add whopper patty, Add Tender crisp patty and more...
+                    </p>
+                  </div>
+                  <div class="dishes__action">
+                    <ul class="dishes__rating">
+                      <li class="dishes__star">
+                        <img src="img/icon-stars/yellow-1.svg" alt="Лайк на единицу">
+                      </li>
+                      <li class="dishes__star">
+                        <img src="img/icon-stars/yellow-1.svg" alt="Лайк на двойку">
+                      </li>
+                      <li class="dishes__star">
+                        <img src="img/icon-stars/yellow-1.svg" alt="Лайк на тройку">
+                      </li>
+                      <li class="dishes__star">
+                        <img src="img/icon-stars/yellow-0.5.svg" alt="Лайк на четвёрку">
+                      </li>
+                      <li class="dishes__star">
+                        <img src="img/icon-stars/yellow-0.svg" alt="Лайк на пятёрку">
+                      </li>
+                    </ul>
+                    <a class="dishes__btn btn" href="#">order</a>
+                  </div>
+                </div>
+              </li>
+              <li class="dishes__item">
+                
+
+                <div class="raiting">
+                  <input id="item1" name="raiting" type="radio" value="1" class="raiting__check">
+                  <label for="item1" class="raiting__star raiting__star_choose">
+                    1 звёзд
+                  </label>
+                  <input id="item2" name="raiting" type="radio" value="2" class="raiting__check">
+                  <label for="item2" class="raiting__star raiting__star_choose">
+                    2 звезды
+                  </label>
+                  <input id="item3" name="raiting" type="radio" value="3" class="raiting__check">
+                  <label for="item3" class="raiting__star raiting__star_choose">
+                    3 звезды
+                  </label>
+                  <input id="item4" name="raiting" type="radio" value="4" class="raiting__check">
+                  <label for="item4" class="raiting__star raiting__star_choose raiting__star_half">
+                    4 звезды
+                  </label>
+                  <input id="item5" name="raiting" type="radio" value="5" class="raiting__check">
+                  <label for="item5" class="raiting__star raiting__star_choose raiting__star_0">
+                    5 звезда
+                  </label>
+                </div>
+
+
+
+                <!-- *-* 
+                <div class="raiting">
+
+                  <input id="item5" name="raiting" type="radio" value="5" class="raiting__check">
+                  <label for="item5" class="raiting__star raiting__star_choose ">
+                    5 звезда
+                  </label>
+
+                  <input id="item4" name="raiting" type="radio" value="4" class="raiting__check">
+                  <label for="item4" class="raiting__star raiting__star_choose">
+                    4 звезды
+                  </label>
+
+                  <input id="item3" name="raiting" type="radio" value="3" class="raiting__check">
+                  <label for="item3" class="raiting__star raiting__star_choose">
+                    3 звезды
+                  </label>
+
+                  <input id="item2" name="raiting" type="radio" value="2" class="raiting__check">
+                  <label for="item2" class="raiting__star raiting__star_choose">
+                    2 звезды
+                  </label>
+
+                  <input id="item1" name="raiting" type="radio" value="1" class="raiting__check">
+                  <label for="item1" class="raiting__star raiting__star_choose">
+                    1 звёзд
+                  </label>
+
+                </div>-->
+
+
+
+
+
+              </li> 
+              <li class="dishes__item"></li>
+              <li class="dishes__item"></li> 
+              <li class="dishes__item"></li>
+            </ul>
+          </div>
+        </section>      
+      </main>   
+      <footer class="footer">
+        <div class="footer__body" data-container></div>
+      </footer> 
+    </div><!-- //wrapper -->
+
+
+    <!-- Для анимациия при прокрутке страницы -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+
+    <script src="js/burger.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
