@@ -267,9 +267,56 @@ button {
   z-index: -1;
   justify-content: center;
 }
+/*** // Шаблон микс - Заголовок title__h2 1440px***/
 
+/* Шаблон микс -  Звездо лайков raiting-1440px */
+.raiting {
+  /* Ширина недаёт блоку уехать в право float-у(.raiting__star) */
+  width: 150px;
+}
 
-/*** // Шаблон микс - Заголовок title__h2 1920px***/
+.raiting__check {
+  display: none;
+}
+
+.raiting__check:checked ~ .raiting__star {
+  background: url("../img/icon-stars/yellow-1.svg") center / cover no-repeat;
+  /* background: url("https://raw.githubusercontent.com/leska-ver/healthy-food-Jeka/78e006ddc08e36d911792bea2464321d05b34a46/img/icon-stars/yellow-1.svg") center / cover no-repeat; */
+}
+.raiting__star {
+  position: relative;
+  display: block;
+  /* float направляет загорание звезды */
+  float: right;
+  width: 19px;
+  height: 19px; 
+  margin-right: 5px;
+  font-size: 0;
+  line-height: 0;
+  background: url("../img/icon-stars/gray-1.svg") center / cover no-repeat;
+  /* background: url("https://raw.githubusercontent.com/leska-ver/healthy-food-Jeka/78e006ddc08e36d911792bea2464321d05b34a46/img/icon-stars/gray-1.svg") center / cover no-repeat; */
+  cursor: pointer;
+}
+
+.raiting__star_half {
+  background: url("../img/icon-stars/gray-0.5.svg") center / cover no-repeat;
+  /* background: url("https://raw.githubusercontent.com/leska-ver/healthy-food-Jeka/78e006ddc08e36d911792bea2464321d05b34a46/img/icon-stars/gray-0.5.svg") center / cover no-repeat; */
+}
+
+.raiting__star_0 {
+  background: url("../img/icon-stars/gray-0.svg") center / cover no-repeat;
+  /* background: url("https://raw.githubusercontent.com/leska-ver/healthy-food-Jeka/78e006ddc08e36d911792bea2464321d05b34a46/img/icon-stars/gray-0.svg") center / cover no-repeat; */
+}
+
+.raiting__star:hover {
+  background: url("../img/icon-stars/yellow-0.5.svg") center / cover no-repeat;
+  /* background: url("https://raw.githubusercontent.com/leska-ver/healthy-food-Jeka/78e006ddc08e36d911792bea2464321d05b34a46/img/icon-stars/yellow-0.5.svg") center / cover no-repeat; */
+}
+.raiting__star:hover ~ .raiting__star {
+  background: url("../img/icon-stars/yellow-1.svg") center / cover no-repeat;
+  /* background: url("https://raw.githubusercontent.com/leska-ver/healthy-food-Jeka/78e006ddc08e36d911792bea2464321d05b34a46/img/icon-stars/yellow-1.svg") center / cover no-repeat; */
+}
+/* // Шаблон микс -  Звездо лайков raiting-1440px */
 
 
 /***Шапка header-1920px***/
@@ -847,15 +894,6 @@ button {
   flex-wrap: wrap;
 }
 
-.dishes__rating {
-  display: flex;
-  padding: 0;
-}
-
-.dishes__star {
-  cursor: pointer;
-}
-
 .dishes__btn {
   border: 1px solid var(--color-tundora);
   color: rgba(255, 255, 255, 0.50);
@@ -865,125 +903,6 @@ button {
 .dishes__btn:before {
   background-color: var(--color-emerald);
 }
-
-
-
-/**/
-.raiting {
-  display: flex;
-}
-.raiting__check {
-  display: none;
-}
-.raiting__star {
-  position: relative;
-  display: block;
-  width: 19px;
-  height: 19px; 
-  margin-right: 5px;
-  font-size: 0;
-  line-height: 0;
-  border: 2px solid gray;
-  background: url("../img/icon-stars/gray-1.svg") center / cover no-repeat;
-  cursor: pointer;
-}
-
-.raiting__star_half {
-  background: url("../img/icon-stars/gray-0.5.svg") center / cover no-repeat;
-}
-
-.raiting__star_0 {
-  background: url("../img/icon-stars/gray-0.svg") center / cover no-repeat;
-}
-
-.raiting__star:hover {
-  border: 2px solid red;
-  background: url("../img/icon-stars/yellow-0.5.svg") center / cover no-repeat;
-}
-.raiting__star:hover ~ .raiting__star {
-  border: 2px solid green;
-  background: url("../img/icon-stars/yellow-1.svg") center / cover no-repeat;
-}
-
-.raiting__check:checked ~ .raiting__star {
-  color: blue;
-  background: url("../img/icon-stars/yellow-1.svg") center / cover no-repeat;
-}
-
-
-/*-*/
-/* .raiting {
-  width: 150px;
-  margin-top: 150px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.raiting::before, .raiting::after {
-  content: '';
-  display: table;
-}
-.raiting::after {
-  clear: both;
-}
-.raiting__check {
-  display: none;
-}
-.raiting__check:checked ~ .raiting__star {
-  color: #f29625;
-}
-.raiting__star {
-  position: relative;
-  display: block;
-  float: right;
-  height: 0;
-  width: 0;
-  border-right: 10px solid transparent;
-  border-bottom: 7px solid;
-  border-left: 10px solid transparent;
-  margin-right: 5px;
-  font-size: 0;
-  line-height: 0;
-  color: #e1e1e1;
-  -webkit-transform: rotate(35deg);
-  transform: rotate(35deg);
-  cursor: pointer;
-}
-.raiting__star::before {
-  content: '';
-  position: absolute;
-  top: -5px;
-  left: -6px;
-  height: 0;
-  width: 0;
-  border-bottom: 8px solid;
-  border-left: 3px solid transparent;
-  border-right: 3px solid transparent;
-  -webkit-transform: rotate(-35deg);
-  transform: rotate(-35deg);
-}
-.raiting__star::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -10px;
-  width: 0;
-  height: 0;
-  border-right: 10px solid transparent;
-  border-bottom: 7px solid;
-  border-left: 10px solid transparent;
-  -webkit-transform: rotate(-70deg);
-  transform: rotate(-70deg);
-}
-.raiting__star:hover {
-  color: #f29625;
-}
-.raiting__star:hover ~ .raiting__star {
-  color: #f29625;
-} */
-
-
-
-
 /* // Карточки одной высоты*/
 /*** // Блюда dishes-1440px ***/
 
