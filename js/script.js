@@ -79,6 +79,54 @@ document.addEventListener('DOMContentLoaded', () => {
 
   
 
+  // Модальное окно//
+  const btns = document.querySelectorAll('.social__foto_js');
+  const modalOverlay = document.querySelector('.modal-overlay ');
+  const modals = document.querySelectorAll('.modal');
+
+  btns.forEach((el) => {
+    el.addEventListener('click', (e) => {
+      let path = e.currentTarget.getAttribute('data-path');
+      const currentModal = document.querySelector(`[data-target="${path}"]`);
+      const closeBtn = currentModal.querySelector('.modal__js-close');
+
+      
+      modals.forEach((el) => {
+        el.classList.remove('modal--visible');
+      });
+    
+      currentModal.classList.add('modal--visible');
+      modalOverlay.classList.add('modal-overlay--visible');
+
+      //Для modal__js-close 
+      closeBtn.focus(); 
+    });
+  });
+
+  // Реакция нажима в любом месте(выключатель окна) не удалять
+  modalOverlay.addEventListener('click', (e) => {
+    console.log(e.target);
+    
+    if (e.target == modalOverlay) {
+      modalOverlay.classList.remove('modal-overlay--visible');
+      modals.forEach((el) => {
+        el.classList.remove('modal--visible');
+      });
+    }
+  });
+
+  //Реакция нажима на Х(выключатель окна)
+  modals.forEach((el) => {
+    const closeBtn = el.querySelector('.modal__js-close');
+
+    closeBtn.addEventListener('click', function () {
+      modalOverlay.classList.remove('modal-overlay--visible');
+      modals.forEach((el) => {
+        el.classList.remove('modal--visible');
+      });
+    });
+  });
+
 
   
 }); 

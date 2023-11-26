@@ -51,6 +51,12 @@
   --color-tundora: #262626;
   --color-tundora: #4d4d4d;
   --color-codGray19: #191919;
+  --color-aluminium: #a4a8b2;
+  --color-osloGray: #85878c;
+  --color-nobel: #b3b3b3;
+  --color-black: #000;
+  --color-doveGray: #737373;
+  --color-silver: #bfbfbf;
 }
 
 html {
@@ -207,10 +213,12 @@ button {
   letter-spacing: -0.275px;
 } 
 
-/*.h4 { 
-  font-weight: 700;
-  font-size: clamp(14px, 4vw, 30px);
-}*/ 
+.h4 { 
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: -0.15px;
+}
 
 .desc {
   font-family: 'Helvetica-Thin', sans-serif;
@@ -221,6 +229,15 @@ button {
 
 .swiper-wrapper {/*Для компа биб*/
   height: auto;
+}
+
+.list-grid {
+  display: -ms-grid;
+  display: grid;
+  -webkit--gap: 28px;
+  -moz--gap: 28px;
+  gap: 28px;
+  padding: 0;
 }
 
 
@@ -254,6 +271,8 @@ button {
   top: -47px;
   right: 0;
   left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   font-family: 'Helvetica-Black', sans-serif;
   /* В бефоре clamp в РР не правильно работает. Задала ниже в медиа. */
@@ -272,7 +291,7 @@ button {
 /* Шаблон микс -  Звездо лайков raiting-1440px */
 .raiting {
   /* Ширина недаёт блоку уехать в право float-у(.raiting__star) */
-  width: 150px;
+  width: 125px;
 }
 
 .raiting__check {
@@ -308,11 +327,11 @@ button {
   /* background: url("https://raw.githubusercontent.com/leska-ver/healthy-food-Jeka/78e006ddc08e36d911792bea2464321d05b34a46/img/icon-stars/gray-0.svg") center / cover no-repeat; */
 }
 
-.raiting__star:hover {
+.raiting__star:hover, .raiting__star--active {
   background: url("../img/icon-stars/yellow-0.5.svg") center / cover no-repeat;
   /* background: url("https://raw.githubusercontent.com/leska-ver/healthy-food-Jeka/78e006ddc08e36d911792bea2464321d05b34a46/img/icon-stars/yellow-0.5.svg") center / cover no-repeat; */
 }
-.raiting__star:hover ~ .raiting__star {
+.raiting__star:hover ~ .raiting__star, .raiting__star--active ~ .raiting__star {
   background: url("../img/icon-stars/yellow-1.svg") center / cover no-repeat;
   /* background: url("https://raw.githubusercontent.com/leska-ver/healthy-food-Jeka/78e006ddc08e36d911792bea2464321d05b34a46/img/icon-stars/yellow-1.svg") center / cover no-repeat; */
 }
@@ -590,6 +609,8 @@ button {
 }
 
 .header__img {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   justify-content: center;
   margin-bottom: 15px;
@@ -697,8 +718,8 @@ button {
   position: absolute;
   top: 65.5%;
   padding: 20px;
-  border-radius: 100%;
-  border: 1px solid var(--color-dustyGray);
+  border-radius: 50%;
+  border: 2px solid var(--color-tundora);
   z-index: 2;
   -webkit-transition: background .4s ease-in-out;
   -moz-transition: background .4s ease-in-out;
@@ -708,21 +729,26 @@ button {
 }
 
 .about__btn:focus {
-  outline: 1px solid transparent;
+  border: 2px solid transparent;
+  outline: none;
   background-color: var(--color-emerald);
 }
 
 .about__btn:hover {
-  border: 1px solid transparent;
-  background-color: var(--color-dustyGray);
+  border: 2px solid transparent;
+  background-color: var(--color-white);
 }
 
-.about__btn:focus svg rect, .about__btn:hover svg rect, .about__btn:disabled svg rect {
-  fill: var(--color-white);
+.about__btn:focus svg rect {
+  fill: var(--color-mineShaft);
+}
+
+.about__btn:hover svg rect, .about__btn:disabled svg rect {
+  fill: var(--color-osloGray);
 }
 
 .about__btn:disabled {
-  border: 1px solid var(--color-white);
+  border: 1px solid var(--color-osloGray);
 }
 
 .about__btn:active {
@@ -760,17 +786,11 @@ button {
 }
 
 .work__list {
-  display: -ms-grid;
-  display: grid;
   -webkit-grid-template-columns: repeat(4, 1fr);
   -o-grid-template-columns: repeat(4, 1fr);
   -moz-grid-template-columns: repeat(4, 1fr);
   -ms-grid-template-columns: repeat(4, 1fr);
   grid-template-columns: repeat(4, 1fr);
-  -webkit--gap: 28px;
-  -moz--gap: 28px;
-  gap: 28px;
-  padding: 0;
   text-align: start;
 }
 
@@ -835,7 +855,11 @@ button {
 
 /*** Блюда dishes-1440px ***/
 .dishes {
-  padding: 55px 0;
+  padding: 55px 0 62px;
+}
+
+.dishes__title {
+  margin-bottom: 80.5px;
 }
 
 .dishes__title .h2 {
@@ -855,6 +879,531 @@ button {
 
 /*Карточки одной высоты*/
 .dishes__list {
+  -webkit-grid-template-columns: repeat(3, 1fr);
+  -o-grid-template-columns: repeat(3, 1fr);
+  -moz-grid-template-columns: repeat(3, 1fr);
+  -ms-grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0;
+  text-align: start;
+}
+
+.dishes__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;/*Для выравнивание карточек dishes__info*/
+  flex-direction: column;/*Для выравнивание карточек dishes__info*/ 
+}
+
+.dishes__img img {
+  border-radius: 8px 8px 0 0;
+}
+
+.dishes__info { 
+  position: relative; /*Для кнопки*/ 
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;/*Для выравнивание карточек li*/
+  justify-content: space-between;/*Для выравнивание карточек li*/
+  flex-direction: column;/*Для выравнивание карточек li*/
+  padding: 25px 31px;  
+  height: 100%;/*Для выравнивание карточек li*/
+  background-color: var(--color-mineShaft25);
+}
+
+.dishes__block {
+  margin-bottom: 20px;
+}
+
+.dishes__h3 {
+  margin: 0 0 3px;
+  font-size: clamp(22px, 4vw, 32px);
+  line-height: 30px;
+  letter-spacing: .3px;
+  color: var(--color-alto);
+}
+
+.dishes__h4 {
+  margin: 0 0 21px;
+  color: var(--color-aluminium);
+}
+
+.dishes__desc {
+  margin: 0;
+  color: var(--color-osloGray);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px; 
+  letter-spacing: 0.162px;
+}
+
+.dishes__action {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.dishes__span {
+  margin-left: -30px;
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 30px; 
+  letter-spacing: 1.5px;
+  color: var(--color-nobel);
+}
+
+.dishes__btn {
+  margin-right: -6px;
+  border: 2px solid var(--color-tundora);
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.50);
+  background-color: transparent;
+}
+
+.dishes__btn:hover, .dishes__btn--active {
+  border: 2px solid transparent;
+  color: var(--color-mineShaft25);
+}
+
+.dishes__btn:before, .dishes__btn--active {
+  background-color: var(--color-emerald);
+}
+
+.dishes__btn--active:hover {
+  background-color: transparent;
+}
+/* // Карточки одной высоты*/
+/*** // Блюда dishes-1440px ***/
+
+
+/*** Шеф-повара chefs-1440px ***/
+.chefs {
+  padding: 62px 0 48px;
+}
+
+.chefs__title {
+  margin-bottom: 58px;
+}
+
+.chefs__title .h2 {
+  margin: 0 0 18px;
+  font-size: clamp(20px, 5vw, 38px);
+  letter-spacing: 7.7px;
+}
+
+.chefs__title.title::before {
+  bottom: -20px;
+}
+
+.chefs__title .title__h2::before {
+  content: "chefs";
+  top: -36px;
+}
+
+.chefs__list {
+  -webkit-grid-template-columns: repeat(3, 1fr);
+  -o-grid-template-columns: repeat(3, 1fr);
+  -moz-grid-template-columns: repeat(3, 1fr);
+  -ms-grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0 0 20px;
+}
+
+.chefs__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.chefs__img {
+  margin-right: 24px;
+}
+
+.chefs__info {
+  margin-top: 11px;
+}
+
+.chefs__h3 {
+  margin: 0;
+  font-size: clamp(16px, 4vw, 18px);
+  letter-spacing: -0.225px;
+  color: var(--color-white);
+}
+
+.chefs__desc {
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: -0.15px;
+  color: rgba(255, 255, 255, 0.50);
+}
+
+.chefs__album {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.chefs__foto:not(:last-child) {
+  margin: 0 30px 30px 0;
+}
+/*** // Шеф-повара chefs-1440px ***/
+
+
+/*** Рецепты recipes-1440px ***/
+.recipes {
+  padding: 47px 0 62px;
+} 
+
+.recipes__title {
+  margin-bottom: 81px;
+}
+
+.recipes__title .h2 {
+  margin: 0 0 18px;
+  font-size: clamp(20px, 5vw, 38px);
+  letter-spacing: 7.7px;
+}
+
+.recipes__title.title::before {
+  bottom: -20px;
+}
+
+.recipes__title .title__h2::before {
+  content: "recipes";
+  top: -36px;
+}
+
+.recipes__title .title__hide {
+  position: relative;
+	padding: 0;
+}
+.recipes__title .title__hide:before {
+	content: '|';
+  position: absolute;
+  top: 3px;
+  left: 0px;
+  font-size: medium;
+  color: var(--color-codGray);
+  background-color: var(--color-codGray);
+}
+
+.recipes__title .title__hide_right:before {
+  top: 4px;
+  left: 10px;
+}
+
+.recipes__div {
+  display: flex;
+  overflow: hidden;
+}
+
+.recipes__list {
+  flex-basis: 50%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Левая карточка */
+.recipes__list_left {
+  margin-right: 28px;
+}
+
+.recipes__item {
+  border-radius: 6px;  
+  background-color: var(--color-mineShaft25);
+  -webkit-transition: opacity .4s ease-in-out;
+  -moz-transition: opacity .4s ease-in-out;
+  -ms-transition: opacity .4s ease-in-out;
+  -o-transition: opacity .4s ease-in-out;
+  transition: opacity .4s ease-in-out;
+}
+
+.recipes__item:hover {
+  opacity: 0.5;
+}
+
+.recipes__item:hover .recipes__button {
+  background-color: var(--color-emerald);
+}
+
+.recipes__item:hover .recipes__h3 {
+  background-color: var(--color-emerald);
+}
+
+.recipes__item_breakfast {
+  position: relative; /*DARKEN */	
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 66px;
+  height: 100%;
+  min-height: 100%;
+  background: url("../img/img-recipes/recipes-01.jpg") center / cover no-repeat;
+}
+
+.recipes__button {
+  position: absolute;
+  top: 30px;
+  right: 34px;
+  padding: 12px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, .3);
+  cursor: pointer;
+}
+
+.recipes__button svg {
+  width: 13px;
+  height: 13px;
+}
+
+.recipes__button svg rect {
+  fill: var(--color-white);
+}
+
+.recipes__button:focus {
+  outline: 2px solid var(--color-emerald);
+}
+
+.recipes__card {
+  position: relative;/*DARKEN */
+}
+
+.recipes__h3 {
+  margin: 60px auto 71px;
+  padding: 3px;
+  width: 90px;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+  background-color: var(--color-black);
+}
+
+.recipes__time {
+  display: inline-block;
+  margin-bottom: 30px;
+}
+
+.recipes__desc {
+  width: 302px;
+  margin: 0 auto 54px;
+  font-size: clamp(20px, 5vw, 26px);
+  line-height: 40px;
+}
+
+.recipes__span {
+  display: inline-block;
+  margin-bottom: 70px;
+  font-size: clamp(12px, 5vw, 14px);
+}
+
+.recipes__reaction {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.recipes__info {
+  display: flex;
+}
+
+.recipes__info:not(:last-child) {
+  margin-right: 30px;
+}
+
+.recipes__img {
+  margin-right: 14px;
+}
+
+
+/* Правая карточка */
+.recipes__list_right {
+  display: flex;/*Для детей maldivi и krit*/
+  flex-direction: column;/*Для гибкости у детей с flex-basis*/
+}
+
+.recipes__item_little {
+  position: relative; /*DARKEN */  
+  padding: 13px 34px 13px 31px;
+  flex-basis: 50%;/*Из-за родителя в column ширина стала высотой*/
+  width: 100%;
+}
+
+.recipes__item_little_jpg {
+  background: url("../img/img-recipes/recipes-02.jpg") center / cover no-repeat;
+}
+
+.recipes__item_little_green {
+  color: var(--color-mineShaft25);
+  background-color: var(--color-emerald);
+}
+
+.recipes__item_little_green .btn {
+  padding: 7.7px 15px;
+  border-radius: 6px;
+  font-size: 9px;
+}
+
+.recipes__item_little .btn:hover {
+  border-radius: 13px;
+}
+
+.recipes__item_little_green .btn:focus {
+  color: var(--color-emerald);
+  background-color: var(--color-black);
+  outline: 2px solid var(--color-emerald);
+}
+
+.recipes__item_little:not(:last-child) {
+  margin-bottom: 29.5px;
+}
+
+.recipes__description {
+  margin-bottom: 10px;
+  font-size: 16.4px;
+  line-height: 30px;
+  text-align: start;
+}
+
+.recipes__flex {
+  display: flex;
+}
+
+.recipes__block {
+  display: flex;
+}
+
+.recipes__block:not(:last-child) {
+  margin-right: auto;
+} 
+
+.recipes__block:last-child {
+  align-items: center;
+  margin: 6.5px -6px 0 0;
+}
+
+.recipes__btn {
+  margin-right: 12px;
+  padding: 7.7px 17px;
+  border-radius: 0;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1.25px;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--color-white);
+  background-color: var(--color-black);
+}
+
+.recipes__datetime {
+  margin-top: 5px;
+}
+/*** // Рецепты recipes-1440px ***/
+
+
+/*** Социальное social-1440px ***/
+.social {
+  padding: 62px 0 55px;
+} 
+
+.social__title {
+  margin-bottom: 81px;
+}
+
+.social__title .h2 {
+  margin: 0 0 18px;
+  font-size: clamp(20px, 5vw, 38px);
+  letter-spacing: 7.7px;
+}
+
+.social__title.title::before {
+  bottom: -18px;
+}
+
+.social__title .title__h2::before {
+  content: "social";
+  top: -34px;
+}
+
+.social__list {
+  -webkit-grid-template-columns: repeat(3, 1fr);
+  -o-grid-template-columns: repeat(3, 1fr);
+  -moz-grid-template-columns: repeat(3, 1fr);
+  -ms-grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.social__item {
+  background-color: var(--color-mineShaft25);
+}
+
+.social__card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 23px 9px 6px;
+  border-bottom: 2px solid var(--color-mineShaft30);
+}
+
+.social__figure {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.social__figure svg {
+  margin-right: 16px;
+  padding: 8px;
+  border-radius: 50%;
+  border: 2px solid var(--color-doveGray);
+}
+
+.social__figure figcaption {
+  font-size: 14px;
+  color: var(--color-silver);
+}
+
+.social__button {
+  padding: 9px 18px;
+  border-radius: 30px;
+  border: 2px solid var(--color-mineShaft30);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-doveGray);
+}
+
+.social__news {
+  padding: 25px 30px;
+  font-size: 14px;
+  text-align: start;
+}
+
+.social__time {
+  display: inline-block;
+  margin-bottom: 2px;
+  color: var(--color-doveGray);
+}
+
+.social__desc {
+  margin-bottom: 11px;
+  font-size: 14.3px;
+  line-height: 30px;
+  color: rgba(255, 255, 255, 0.70);
+}
+
+.social__gmail {
+  line-height: 30px;
+  color: var(--color-emerald);
+}
+
+.social__album {
   display: -ms-grid;
   display: grid;
   -webkit-grid-template-columns: repeat(3, 1fr);
@@ -862,49 +1411,11 @@ button {
   -moz-grid-template-columns: repeat(3, 1fr);
   -ms-grid-template-columns: repeat(3, 1fr);
   grid-template-columns: repeat(3, 1fr);
-  -webkit--gap: 28px;
-  -moz--gap: 28px;
-  gap: 28px;
-  padding: 0;
-  text-align: start;
+  -webkit--gap: 10px;
+  -moz--gap: 10px;
+  gap: 10px;
 }
-
-.dishes__item {
-  display: flex;/*Для выравнивание карточек dishes__info*/
-  flex-direction: column;/*Для выравнивание карточек dishes__info*/
-  margin-right: 30px;
-  margin-bottom: 30px; 
-}
-
-.dishes__info { 
-  position: relative; /*Для кнопки*/ 
-  display: flex;/*Для выравнивание карточек li*/
-  justify-content: space-between;/*Для выравнивание карточек li*/
-  flex-direction: column;/*Для выравнивание карточек li*/
-  padding: 30px 31px;  
-  height: 100%;/*Для выравнивание карточек li*/
-  border-radius: 0 0 20px 20px;
-  background-color: var(--color-mineShaft25);
-}
-
-.dishes__action {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.dishes__btn {
-  border: 1px solid var(--color-tundora);
-  color: rgba(255, 255, 255, 0.50);
-  background-color: transparent;
-}
-
-.dishes__btn:before {
-  background-color: var(--color-emerald);
-}
-/* // Карточки одной высоты*/
-/*** // Блюда dishes-1440px ***/
+/*** // Социальное social-1440px ***/
 
 
 @media (max-width: 1222px) {
@@ -945,14 +1456,24 @@ button {
 
 
   .dishes__list {
-    -webkit-grid-template-columns: repeat(1, 1fr);
-    -o-grid-template-columns: repeat(1, 1fr);
-    -moz-grid-template-columns: repeat(1, 1fr);
-    -ms-grid-template-columns: repeat(1, 1fr);
-    grid-template-columns: repeat(1, 1fr);
+    -webkit-grid-template-columns: repeat(2, 1fr);
+    -o-grid-template-columns: repeat(2, 1fr);
+    -moz-grid-template-columns: repeat(2, 1fr);
+    -ms-grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
+  .dishes__img img {
+    width: 100%;
+  }
 
+  .dishes__span {
+    margin-left: 0;
+  }  
+
+  .dishes__btn {
+    margin-right: 0;
+  }  
 }
 
 @media (max-width: 999px) {  
@@ -1035,7 +1556,58 @@ button {
   } 
   /* // Слайдер*/
 
+
   .work__list {
+    -webkit-grid-template-columns: repeat(2, 1fr);
+    -o-grid-template-columns: repeat(2, 1fr);
+    -moz-grid-template-columns: repeat(2, 1fr);
+    -ms-grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+
+  .chefs__list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 0 0 20px;
+    padding: 0;
+  }
+  
+  .chefs__item:not(:last-child) {
+    margin-right: 20px;
+  }
+
+  .chefs__album {
+    justify-content: center;
+  }
+
+  .chefs__foto:not(:last-child) {
+    margin: 0 20px 20px 0;
+  }
+
+
+  .recipes__div {
+    display: block;
+  }
+
+  .recipes__list_left {
+    margin: 0 0 35px 0;
+  }
+
+  .recipes__button {
+    top: 25px;
+    right: 25px;
+    padding: 7px 10px;
+  }
+
+  .recipes__button svg {
+    width: 10px;
+    height: 10px;
+  }
+
+
+  .social__list {
     -webkit-grid-template-columns: repeat(2, 1fr);
     -o-grid-template-columns: repeat(2, 1fr);
     -moz-grid-template-columns: repeat(2, 1fr);
@@ -1117,6 +1689,8 @@ button {
   }  
 
   .header__cards {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -1165,11 +1739,34 @@ button {
   }
 
   .work__list {
-    -webkit-grid-template-columns: repeat(1, 1fr);
-    -o-grid-template-columns: repeat(1, 1fr);
-    -moz-grid-template-columns: repeat(1, 1fr);
-    -ms-grid-template-columns: repeat(1, 1fr);
-    grid-template-columns: repeat(1, 1fr);
+    display: block;
+  }
+
+
+  .dishes__list {
+    display: block;
+  }
+
+  .dishes__info {
+    padding: 25px;
+  }
+
+
+  .chefs__item {
+    display: block;
+  }
+
+  .chefs__item:not(:last-child) {
+    margin-right: 0;
+  }
+
+  .chefs__foto:nth-child(3n) {
+    margin-right: 0;
+  }
+
+
+  .recipes__title .title__hide:before {
+    display: none;
   }
 }
 
@@ -1210,10 +1807,372 @@ button {
     max-width: 100%;
     line-height: 1.5;
   }
+
+
+  .dishes__raiting {
+    margin-bottom: 20px;
+  }
+
+  .dishes__btn {
+    display: block;
+    width: 100%;
+  }
+
+
+  .chefs__list {
+    display: block;
+  }
+
+  .chefs__item {
+    display: flex;
+    margin-bottom: 20px;
+  }
+
+  .chefs__album {
+    justify-content: start;
+    margin: 0 auto;
+    width: 267px;
+  }
+
+  .chefs__foto, .chefs__foto:not(:last-child) {
+    margin-right: 0;
+  }
+
+  .chefs__foto:nth-child(odd) {
+    margin-right: 20px;
+  }
+
+  .chefs__foto:nth-child(7) {
+    order: 8;
+  }
+
+  .chefs__foto:nth-child(8) {
+    order: 7;
+    margin-left: 20px;
+  }
+
+  .chefs__foto:nth-child(9) {
+    order: 9;
+  }
+
+
+  .recipes__flex {
+    display: block;
+  }
+
+  .social__list {
+    display: block;
+  }
 }  
 
 
 
 
 
+
+/**/
+:root {
+  /*биб*/
+  --swiper-theme-color: transparent;
+  /*9.9*/
+  --burger-width: 30px;
+  --burger-height: 23px;
+  --burger-line-height: 2px;
+  --color-white: #fff;
+  --color-black: #333;
+  --color-black-0: #000;
+  --color-amethyst: #9d5cd0;
+  --color-dustyGray: #999;
+
+  /*В активе и в фокусе у разных элементов*/
+  --color-royal-purple: #7943A4;
+  --color-heliotrope: #C283F3;
+  --color-biloba-flower: #d1a9f0;
+  --color-silver: #cacaca;
+  --gap: 32px;
+}
+
+/**-gallery-**/
+.gallery {
+  padding: 80px 0 79px;
+  width: 100%;
+  background-image: url("../img/background-gallery.jpg");
+  background-image: url("https://raw.githubusercontent.com/leska-ver/kursach/main/img/background-gallery.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.gallery__btn {
+  position: relative;
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  background-color: #666;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color .4s ease-in-out;
+}
+
+.gallery__btn:focus {
+  border-radius: 50%;
+  background-color: #666;
+  outline: none;
+  border: 1px solid var(--color-black-0);
+}
+
+.gallery__btn:hover {
+  background-color: var(--color-amethyst);
+}
+
+.gallery__btn:active {
+  border: 2px solid var(--color-black-0);
+  background-color: var(--color-royal-purple);
+}
+
+.gallery__btn:disabled {
+  background-color: #b0b0b0;
+}
+
+.gallery__btn::before {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  transform-origin: center;
+}
+
+.social__foto {
+  position: relative;
+  padding: 0;
+  outline: none;
+  background-color: var(--color-codGray19);
+}
+
+.social__foto:focus::before {
+  border: 3px solid var(--color-royal-purple);
+  opacity: 1;
+}
+
+.social__foto::before {
+  content: "";
+  position: absolute;
+  display: block;
+  /* Адаптивная высота слайда регулируется относительно его ширины с помощью padding-top в % для псевдоэлемента ::before */
+  padding-top: 98.5%;
+  border: 3px solid transparent;
+  z-index: 1;
+  transition: background-color .3s ease-in-out, border-color .3s ease-in-out;
+}
+
+.social__foto::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 25px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-image: url("../img/loop+.svg");
+  background-image: url("https://raw.githubusercontent.com/leska-ver/kursach/23c84e97c97cffd8458a0e2c9ead2a8009d55e7f/img/loop+.svg");
+  background-repeat: no-repeat;
+  background-size: 81px;
+  background-position: 50% 45%;
+  background-clip: content-box;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity .5s ease-in-out;
+}
+
+.social__foto:hover::after {
+  opacity: 1;
+}
+
+.social__foto:active::before {
+  border: 2px solid var(--color-biloba-flower);
+  background-color: rgba(194, 131, 243, 0.4);
+}
+
+.social__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/**-modal-**/
+.modal-overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  /* background-color: rgba(0, 0, 0, 0.8); */
+  background-color: rgb(6 6 6 / 71%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 100vh;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  /* модальный блок ездит не будет по всему сайту */
+  overflow: auto;
+  z-index: 99999;
+  transition: all 0.3s ease-in-out;
+
+}
+
+.modal {
+  background-color: #fff;
+  width: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+
+.modal-overlay--visible {
+  /*Mak*/
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.3s ease-in-out;
+}
+
+.modal--visible {
+  /*Mak*/
+  display: block;
+}
+
+.modal--visible:focus {
+  /*Для Таба, открывать модальное окно. Не трогать!!!*/
+  outline: 1px solid var(--color-amethyst)
+}
+
+.disable-scroll {
+  /*Mak*/
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.modal:target {
+  display: block;
+  pointer-events: auto;
+}
+
+.modal__js-close {
+  position: absolute;
+  top: 13px;
+  right: 13px;
+  width: 30px;
+  height: 30px;
+  transition: background-color .4s ease-in-out;
+  cursor: pointer; 
+}
+
+.modal__js-close::before {
+  content: "";
+  position: absolute;
+  top: 13px;
+  left: 5px;
+  width: 20px;
+  height: 1px;
+  background-color: var(--color-black-0);
+  transform: rotate(45deg);
+  transition: background-color .4s ease-in-out;
+}
+
+.modal__js-close::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  width: 1px;
+  height: 20px;
+  background-color: var(--color-black-0);
+  transform: rotate(45deg);
+  transition: background-color .4s ease-in-out;
+}
+
+.modal__js-close:focus::before, .modal__js-close:focus::after {
+  background-color: var(--color-amethyst);
+}
+
+.modal__js-close:hover::before, .modal__js-close:hover::after {
+  background-color: var(--color-amethyst);
+}
+
+.modal__js-close:active::before, .modal__js-close:active::after {
+  background-color: var(--color-royal-purple);
+}
+
+.modal__container {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: inherit;
+}
+
+.modal__picture {
+  width: 44.3%;
+}
+
+.modal__image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.modal__title {
+  margin: 0;
+  font-size: 23px;
+  color: var(--color-black);
+}
+
+.modal__info {  
+  position: relative;
+  padding: 117px 0 16px 50px;
+  width: 50%;
+}
+
+.modal__strong {
+  display: block;
+  font-size: 15px;
+  line-height: 15px;
+  color: var(--color-black);
+}
+
+.modal__span {
+  font-family: 'Open Sans';
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #969696;
+}
+
+.modal__descr {
+  margin: 0;
+  padding-top: 31px;
+  font-family: 'Open Sans';
+  font-weight: 400;
+  line-height: var(--gap);
+  color: var(--color-black);
+}
+
+
+/**Конец modal**/
+
+
+/**-Конец gallery-**/
 
