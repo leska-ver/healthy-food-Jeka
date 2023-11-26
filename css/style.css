@@ -1411,10 +1411,232 @@ button {
   -moz-grid-template-columns: repeat(3, 1fr);
   -ms-grid-template-columns: repeat(3, 1fr);
   grid-template-columns: repeat(3, 1fr);
-  -webkit--gap: 10px;
-  -moz--gap: 10px;
-  gap: 10px;
+  -webkit--gap: 0px;
+  -moz--gap: 0px;
+  gap: 0px;
 }
+
+.social__foto {
+  position: relative;
+  padding: 0;
+  outline: none;
+  background-color: var(--color-codGray19);
+}
+
+.social__foto:focus::before {
+  border: 3px solid var(--color-mineShaft);
+  opacity: 1;
+}
+
+.social__foto::before {
+  content: "";
+  position: absolute;
+  display: block;
+  /* Адаптивная высота слайда регулируется относительно его ширины с помощью padding-top в % для псевдоэлемента ::before */
+  padding-top: 98.5%;
+  border: 3px solid transparent;
+  z-index: 1;
+  transition: background-color .3s ease-in-out, border-color .3s ease-in-out;
+}
+
+.social__foto::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-image: url("../img/img-social/social-arrow.png");
+  /* background-image: url("https://raw.githubusercontent.com/leska-ver/healthy-food-Jeka/main/img/img-social/social-arrow.png"); */
+  background-repeat: no-repeat;
+  background-size: 36px;
+  background-position: 50% 45%;
+  background-clip: content-box;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity .5s ease-in-out;
+}
+
+.social__foto:hover::after {
+  opacity: 1;
+}
+
+.social__foto:active::before {
+  border: 2px solid var(--color-mineShaft30);
+  background-color: rgba(194, 131, 243, 0.4);
+}
+
+.social__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/**-modal-**/
+.modal-overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  /* background-color: rgba(0, 0, 0, 0.8); */
+  background-color: rgb(6 6 6 / 71%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 100vh;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  /* модальный блок ездит не будет по всему сайту */
+  overflow: auto;
+  z-index: 99999;
+  transition: all 0.3s ease-in-out;
+
+}
+
+.modal {
+  background-color: #fff;
+  width: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+
+.modal-overlay--visible {
+  /*Mak*/
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.3s ease-in-out;
+}
+
+.modal--visible {
+  /*Mak*/
+  display: block;
+}
+
+.modal--visible:focus {
+  /*Для Таба, открывать модальное окно. Не трогать!!!*/
+  outline: 1px solid var(--color-emerald)
+}
+
+.disable-scroll {
+  /*Mak*/
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.modal:target {
+  display: block;
+  pointer-events: auto;
+}
+
+.modal__js-close {
+  position: absolute;
+  top: 13px;
+  right: 13px;
+  width: 30px;
+  height: 30px;
+  transition: background-color .4s ease-in-out;
+  cursor: pointer; 
+}
+
+.modal__js-close::before {
+  content: "";
+  position: absolute;
+  top: 13px;
+  left: 5px;
+  width: 20px;
+  height: 1px;
+  background-color: var(--color-mineShaft25);
+  transform: rotate(45deg);
+  transition: background-color .4s ease-in-out;
+}
+
+.modal__js-close::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  width: 1px;
+  height: 20px;
+  background-color: var(--color-mineShaft25);
+  transform: rotate(45deg);
+  transition: background-color .4s ease-in-out;
+}
+
+.modal__js-close:focus::before, .modal__js-close:focus::after {
+  background-color: var(--color-emerald);
+}
+
+.modal__js-close:hover::before, .modal__js-close:hover::after {
+  background-color: var(--color-emerald);
+}
+
+.modal__js-close:active::before, .modal__js-close:active::after {
+  background-color: var(--color-emerald);
+}
+
+.modal__container {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: inherit;
+}
+
+.modal__picture {
+  width: 44.3%;
+}
+
+.modal__image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.modal__title {
+  margin: 0;
+  font-size: 23px;
+  color: var(--color-black);
+}
+
+.modal__info {  
+  position: relative;
+  padding: 117px 0 16px 50px;
+  width: 50%;
+}
+
+.modal__strong {
+  display: block;
+  font-size: 15px;
+  line-height: 15px;
+  color: var(--color-black);
+}
+
+.modal__span {
+  font-family: 'Open Sans';
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-alto);
+}
+
+.modal__descr {
+  margin: 0;
+  padding-top: 31px;
+  font-family: 'Open Sans';
+  font-weight: 400;
+  line-height: var(--gap);
+  color: var(--color-black);
+}
+/**Конец modal**/
 /*** // Социальное social-1440px ***/
 
 
@@ -1871,252 +2093,4 @@ button {
 
 
 /**/
-:root {
-  /*биб*/
-  --swiper-theme-color: transparent;
-  /*9.9*/
-  --burger-width: 30px;
-  --burger-height: 23px;
-  --burger-line-height: 2px;
-  --color-white: #fff;
-  --color-black: #333;
-  --color-black-0: #000;
-  --color-amethyst: #9d5cd0;
-  --color-dustyGray: #999;
-
-  /*В активе и в фокусе у разных элементов*/
-  --color-royal-purple: #7943A4;
-  --color-heliotrope: #C283F3;
-  --color-biloba-flower: #d1a9f0;
-  --color-silver: #cacaca;
-  --gap: 32px;
-}
-
-/**-gallery-**/
-.social__foto {
-  position: relative;
-  padding: 0;
-  outline: none;
-  background-color: var(--color-codGray19);
-}
-
-.social__foto:focus::before {
-  border: 3px solid var(--color-royal-purple);
-  opacity: 1;
-}
-
-.social__foto::before {
-  content: "";
-  position: absolute;
-  display: block;
-  /* Адаптивная высота слайда регулируется относительно его ширины с помощью padding-top в % для псевдоэлемента ::before */
-  padding-top: 98.5%;
-  border: 3px solid transparent;
-  z-index: 1;
-  transition: background-color .3s ease-in-out, border-color .3s ease-in-out;
-}
-
-.social__foto::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  box-sizing: border-box;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  background: url("../img/img-social/social-arrow.png") center / cover no-repeat;
-  background-image: url("https://raw.githubusercontent.com/leska-ver/kursach/23c84e97c97cffd8458a0e2c9ead2a8009d55e7f/img/loop+.svg");
-  background-repeat: no-repeat;
-  background-size: 81px;
-  background-position: 50% 45%;
-  background-clip: content-box;
-  z-index: 2;
-  opacity: 0;
-  transition: opacity .5s ease-in-out;
-}
-
-.social__foto:hover::after {
-  opacity: 1;
-}
-
-.social__foto:active::before {
-  border: 2px solid var(--color-mineShaft30);
-  background-color: rgba(194, 131, 243, 0.4);
-}
-
-.social__img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/**-modal-**/
-.modal-overlay {
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  /* background-color: rgba(0, 0, 0, 0.8); */
-  background-color: rgb(6 6 6 / 71%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-height: 100vh;
-  width: 100%;
-  opacity: 0;
-  visibility: hidden;
-  /* модальный блок ездит не будет по всему сайту */
-  overflow: auto;
-  z-index: 99999;
-  transition: all 0.3s ease-in-out;
-
-}
-
-.modal {
-  background-color: #fff;
-  width: 900px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  display: none;
-}
-
-.modal-overlay--visible {
-  /*Mak*/
-  opacity: 1;
-  visibility: visible;
-  transition: all 0.3s ease-in-out;
-}
-
-.modal--visible {
-  /*Mak*/
-  display: block;
-}
-
-.modal--visible:focus {
-  /*Для Таба, открывать модальное окно. Не трогать!!!*/
-  outline: 1px solid var(--color-amethyst)
-}
-
-.disable-scroll {
-  /*Mak*/
-  position: relative;
-  overflow: hidden;
-  height: 100vh;
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-}
-
-.modal:target {
-  display: block;
-  pointer-events: auto;
-}
-
-.modal__js-close {
-  position: absolute;
-  top: 13px;
-  right: 13px;
-  width: 30px;
-  height: 30px;
-  transition: background-color .4s ease-in-out;
-  cursor: pointer; 
-}
-
-.modal__js-close::before {
-  content: "";
-  position: absolute;
-  top: 13px;
-  left: 5px;
-  width: 20px;
-  height: 1px;
-  background-color: var(--color-black-0);
-  transform: rotate(45deg);
-  transition: background-color .4s ease-in-out;
-}
-
-.modal__js-close::after {
-  content: "";
-  position: absolute;
-  top: 3px;
-  width: 1px;
-  height: 20px;
-  background-color: var(--color-black-0);
-  transform: rotate(45deg);
-  transition: background-color .4s ease-in-out;
-}
-
-.modal__js-close:focus::before, .modal__js-close:focus::after {
-  background-color: var(--color-amethyst);
-}
-
-.modal__js-close:hover::before, .modal__js-close:hover::after {
-  background-color: var(--color-amethyst);
-}
-
-.modal__js-close:active::before, .modal__js-close:active::after {
-  background-color: var(--color-royal-purple);
-}
-
-.modal__container {
-  position: relative;
-  display: flex;
-  width: 100%;
-  height: inherit;
-}
-
-.modal__picture {
-  width: 44.3%;
-}
-
-.modal__image {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.modal__title {
-  margin: 0;
-  font-size: 23px;
-  color: var(--color-black);
-}
-
-.modal__info {  
-  position: relative;
-  padding: 117px 0 16px 50px;
-  width: 50%;
-}
-
-.modal__strong {
-  display: block;
-  font-size: 15px;
-  line-height: 15px;
-  color: var(--color-black);
-}
-
-.modal__span {
-  font-family: 'Open Sans';
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 16px;
-  color: #969696;
-}
-
-.modal__descr {
-  margin: 0;
-  padding-top: 31px;
-  font-family: 'Open Sans';
-  font-weight: 400;
-  line-height: var(--gap);
-  color: var(--color-black);
-}
-
-
-/**Конец modal**/
-
-
-/**-Конец gallery-**/
 
