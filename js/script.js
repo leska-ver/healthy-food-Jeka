@@ -83,13 +83,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const btns = document.querySelectorAll('.social__foto_js');
   const modalOverlay = document.querySelector('.modal-overlay ');
   const modals = document.querySelectorAll('.modal');
+  
+  // отключить включение прокрутки BODY
+  const disableScroll = function disableScroll() {
+    document.body.classList.add('disable-scroll');
+  };
+  const enableScroll = function enableScroll() {
+    document.body.classList.remove('disable-scroll');
+  };
+  // -//- отключить включение прокрутки BODY -//-
 
+  
   btns.forEach((el) => {
     el.addEventListener('click', (e) => {
       let path = e.currentTarget.getAttribute('data-path');
       const currentModal = document.querySelector(`[data-target="${path}"]`);
       const closeBtn = currentModal.querySelector('.modal__js-close');
-
       
       modals.forEach((el) => {
         el.classList.remove('modal--visible');
@@ -99,9 +108,10 @@ document.addEventListener('DOMContentLoaded', () => {
       modalOverlay.classList.add('modal-overlay--visible');
 
       //Для modal__js-close 
-      closeBtn.focus(); 
+      closeBtn.focus();
+        disableScroll();//?
     });
-  });
+  }); 
 
   // Реакция нажима в любом месте(выключатель окна) не удалять
   modalOverlay.addEventListener('click', (e) => {
@@ -126,6 +136,8 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   });
+
+  enableScroll();//?
 
 
   
