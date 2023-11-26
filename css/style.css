@@ -1893,58 +1893,6 @@ button {
 }
 
 /**-gallery-**/
-.gallery {
-  padding: 80px 0 79px;
-  width: 100%;
-  background-image: url("../img/background-gallery.jpg");
-  background-image: url("https://raw.githubusercontent.com/leska-ver/kursach/main/img/background-gallery.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.gallery__btn {
-  position: relative;
-  flex-shrink: 0;
-  width: 30px;
-  height: 30px;
-  background-color: #666;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background-color .4s ease-in-out;
-}
-
-.gallery__btn:focus {
-  border-radius: 50%;
-  background-color: #666;
-  outline: none;
-  border: 1px solid var(--color-black-0);
-}
-
-.gallery__btn:hover {
-  background-color: var(--color-amethyst);
-}
-
-.gallery__btn:active {
-  border: 2px solid var(--color-black-0);
-  background-color: var(--color-royal-purple);
-}
-
-.gallery__btn:disabled {
-  background-color: #b0b0b0;
-}
-
-.gallery__btn::before {
-  content: "";
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(45deg);
-  transform-origin: center;
-}
-
 .social__foto {
   position: relative;
   padding: 0;
@@ -1973,12 +1921,11 @@ button {
   position: absolute;
   top: 0;
   left: 0;
-  padding: 25px;
   box-sizing: border-box;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  background-image: url("../img/loop+.svg");
+  background: url("../img/img-social/social-arrow.png") center / cover no-repeat;
   background-image: url("https://raw.githubusercontent.com/leska-ver/kursach/23c84e97c97cffd8458a0e2c9ead2a8009d55e7f/img/loop+.svg");
   background-repeat: no-repeat;
   background-size: 81px;
@@ -1994,14 +1941,11 @@ button {
 }
 
 .social__foto:active::before {
-  border: 2px solid var(--color-biloba-flower);
+  border: 2px solid var(--color-mineShaft30);
   background-color: rgba(194, 131, 243, 0.4);
 }
 
 .social__img {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
