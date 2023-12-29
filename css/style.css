@@ -226,6 +226,18 @@ button {
   line-height: 30px;
 }  
 
+/* Микс line крест выключатель .header__x .social*/
+.line {
+  fill: none;
+  stroke: var(--color-emerald);
+  stroke-width: 6px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transform-origin: 50%;
+  transition: stroke-dasharray 500ms 200ms, stroke-dashoffset 500ms 200ms, transform 500ms 200ms;
+}
+/* // Микс line крест выключатель .header__x .social*/
+
 .swiper-wrapper {/*Для компа биб*/
   height: auto;
 }
@@ -406,16 +418,6 @@ button {
 .header__x {
   transform: scale(0);
   transition: transform 400ms;
-}
-
-.line {
-  fill: none;
-  stroke: var(--color-emerald);
-  stroke-width: 6px;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  transform-origin: 50%;
-  transition: stroke-dasharray 500ms 200ms, stroke-dashoffset 500ms 200ms, transform 500ms 200ms;
 }
 
 .header__x .line {
@@ -1989,8 +1991,11 @@ body._lock {
   align-items: center;
   padding: 30px 16px;
   min-height: 100%;
-  transform: translate(0, 100vh);
-  transition: 0.2s;
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  -ms-transition: 1s;
+  -o-transition: 1s;
+  transition: 1s;
 }
 
 .modal__content {
