@@ -1989,7 +1989,7 @@ button {
 
 @media (max-width: 424px) {
   .title__h2::before {
-    top: 20px;
+    top: -36px;
     color: var(--color-mineShaft);
   }
 
