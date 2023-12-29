@@ -773,7 +773,7 @@
                     <a href="#" class="social__button">follow us</a>
                   </div>
                   <div class="social__album">
-                    <button class="social__foto social__foto_js" data-path="form-popup">
+                    <button class="social__foto" data-modal-open="modal-1">
                       <picture>
                         <source srcset="./img/social1-320.jpg" media="(max-width: 580px)">                    
                         <source srcset="./img/social1-768.jpg" media="(max-width: 768px)">
@@ -781,7 +781,7 @@
                         <!--<img class="social__img" src="https://raw.githubusercontent.com/leska-ver/healthy-food-Jeka/main/img/img-social/foto-01.jpg" alt="foto-01"> Для codepen -->
                       </picture>                
                     </button>
-                    <button class="social__foto social__foto_js" data-path="form-popup">
+                    <button class="social__foto" data-modal-open="modal-2">
                       <picture>
                         <source srcset="./img/social2-320.jpg" media="(max-width: 580px)">                    
                         <source srcset="./img/social2-768.jpg" media="(max-width: 768px)">
@@ -789,7 +789,7 @@
                         <!--<img class="social__img" src="https://raw.githubusercontent.com/leska-ver/healthy-food-Jeka/main/img/img-social/foto-02.jpg" alt="foto-02"> Для codepen -->
                       </picture>                 
                     </button>
-                    <button class="social__foto social__foto_js" data-path="form-popup">
+                    <button class="social__foto" data-modal-open="modal-3">
                       <picture>
                         <source srcset="./img/social3-320.jpg" media="(max-width: 580px)">                    
                         <source srcset="./img/social3-768.jpg" media="(max-width: 768px)">
@@ -797,7 +797,7 @@
                         <!--<img class="social__img" src="https://raw.githubusercontent.com/leska-ver/healthy-food-Jeka/main/img/img-social/foto-03.jpg" alt="foto-03"> Для codepen -->
                       </picture>
                     </button>
-                    <button class="social__foto social__foto_js" data-path="form-popup">
+                    <button class="social__foto" data-modal-open="modal-4">
                       <picture>
                         <source srcset="./img/social4-320.jpg" media="(max-width: 580px)">                    
                         <source srcset="./img/social4-768.jpg" media="(max-width: 768px)">
@@ -805,7 +805,7 @@
                         <!--<img class="social__img" src="https://raw.githubusercontent.com/leska-ver/healthy-food-Jeka/main/img/img-social/foto-04.jpg" alt="foto-04"> Для codepen -->
                       </picture>
                     </button>
-                    <button class="social__foto social__foto_js" data-path="form-popup">
+                    <button class="social__foto" data-modal-open="modal-5">
                       <picture>
                         <source srcset="./img/social5-320.jpg" media="(max-width: 580px)">                    
                         <source srcset="./img/social5-768.jpg" media="(max-width: 768px)">
@@ -813,7 +813,7 @@
                         <!--<img class="social__img" src="https://raw.githubusercontent.com/leska-ver/healthy-food-Jeka/main/img/img-social/foto-05.jpg" alt="foto-05"> Для codepen -->
                       </picture>
                     </button>
-                    <button class="social__foto social__foto_js" data-path="form-popup">
+                    <button class="social__foto" data-modal-open="modal-6">
                       <picture>
                         <source srcset="./img/social6-320.jpg" media="(max-width: 580px)">                    
                         <source srcset="./img/social6-768.jpg" media="(max-width: 768px)">
@@ -845,49 +845,101 @@
                 </article>
               </li>
             </ul>
-            <div class="modals">
-              <!--Модальное окно на button-->
-              <div class="modals">
-                <!-- modal-overlay для js -->
-                <div class="modal-overlay">
-                  <div class="modal" data-target="form-popup">
-                    <div class="modal__container">
-                      <picture class="modal__picture">
-                        <!--Для компа-->
-                        <!-- <source srcset="./img/social2-320modal.jpg" media="(max-width: 580px)">
-                        <source srcset="./img/social2-768modal.jpg" media="(max-width: 970px)">
-                        <source srcset="./img/social2-1024modal.jpg" media="(max-width: 1200px)">
-                        <img class="modal__image" src="./img/social2-320.jpg" alt="Женщина с граблями"> -->
-                        <img class="modal-image-social" src="https://raw.githubusercontent.com/leska-ver/kursach/23c84e97c97cffd8458a0e2c9ead2a8009d55e7f/img/social1.jpg" alt="">
-                      </picture>
-                      <div class="modal__info">
-                        <h3 class="modal__title h3">Казимир Малевич</h3>
-                        <strong class="modal__strong">“Женщина с граблями”</strong>
-                        <span class="modal__span">1931-1932</span>
-                        <p class="modal__descr desc">Картина из второй серии крестьянского цикла работ Казимира
-                          Малевича. Художник принялся за её создание в 1930-1931 годах, после того, как первый цикл был утерян
-                          после Берлинской и Варшавской выставок в 1927 году.</p>
-                      </div>
-                      <button title="Закрыть" class="modal__js-close"></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          </div>
+        </section>       
+        
+
+      </main>   
+      <footer class="footer">
+        <div class="footer__body" data-container></div>
+      </footer>
+      <div class="modals">
+        <div class="modals__modal modal" id="modal-1">
+          <div class="modal__body">
+            <div class="modal__content">
+              <button class="modal__close">
+                <svg width="25" height="30" version="1.1" viewbox="0 0 100 77">
+                  <path class="line" d="M 34,32 L 66,68" />
+                  <path class="line" d="M 66,32 L 34,68" />
+                </svg>
+              </button>
+              <img src="img/img-social/foto-01-modal.jpg" alt="foto-01">
             </div>
           </div>
-        </section>
-        
-        
+        </div>
+        <div class="modal" id="modal-2">
+          <div class="modal__body">
+            <div class="modal__content">
+              <button class="modal__close">
+                <svg width="25" height="30" version="1.1" viewbox="0 0 100 77">
+                  <path class="line" d="M 34,32 L 66,68" />
+                  <path class="line" d="M 66,32 L 34,68" />
+                </svg>
+              </button>
+              <img src="img/img-social/foto-02-modal.jpg" alt="foto-02">
+            </div>
+          </div>
+        </div>
+        <div class="modal" id="modal-3">
+          <div class="modal__body">
+            <div class="modal__content">
+              <button class="modal__close">
+                <svg width="25" height="30" version="1.1" viewbox="0 0 100 77">
+                  <path class="line" d="M 34,32 L 66,68" />
+                  <path class="line" d="M 66,32 L 34,68" />
+                </svg>
+              </button>
+              <img src="img/img-social/foto-03-modal.jpg" alt="foto-03">
+            </div>
+          </div>
+        </div>
+        <div class="modal" id="modal-4">
+          <div class="modal__body">
+            <div class="modal__content">
+              <button class="modal__close">
+                <svg width="25" height="30" version="1.1" viewbox="0 0 100 77">
+                  <path class="line" d="M 34,32 L 66,68" />
+                  <path class="line" d="M 66,32 L 34,68" />
+                </svg>
+              </button>
+              <img src="img/img-social/foto-04-modal.jpg" alt="foto-04">              
+            </div>
+          </div>
+        </div>
+        <div class="modal" id="modal-5">
+          <div class="modal__body">
+            <div class="modal__content">
+              <button class="modal__close">
+                <svg width="25" height="30" version="1.1" viewbox="0 0 100 77">
+                  <path class="line" d="M 34,32 L 66,68" />
+                  <path class="line" d="M 66,32 L 34,68" />
+                </svg>
+              </button>
+              <img src="img/img-social/foto-05-modal.jpg" alt="foto-05">
+            </div>
+          </div>
+        </div>
+        <div class="modal" id="modal-6">
+          <div class="modal__body">
+            <div class="modal__content">
+              <button class="modal__close">
+                <svg width="25" height="30" version="1.1" viewbox="0 0 100 77">
+                  <path class="line" d="M 34,32 L 66,68" />
+                  <path class="line" d="M 66,32 L 34,68" />
+                </svg>
+              </button>
+              <img src="img/img-social/foto-06-modal.jpg" alt="foto-06">
+            </div>
+          </div>
+        </div>
+      </div> 
+    </div><!-- //wrapper -->
         
           
 
 
 
-      </main>   
-      <footer class="footer">
-        <div class="footer__body" data-container></div>
-      </footer> 
-    </div><!-- //wrapper -->
+      
 
 
     <!-- Для анимациия при прокрутке страницы -->

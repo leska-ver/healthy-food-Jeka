@@ -141,7 +141,6 @@ button {
   -o-transition: all .4s ease-in-out;
   transition: all .4s ease-in-out;
   z-index: 1;
-  transition: 0.2s all;
 }
 
 .btn:focus {
@@ -1401,6 +1400,24 @@ button {
 .social__gmail {
   line-height: 30px;
   color: var(--color-emerald);
+  outline: none;
+  -webkit-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  -ms-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.social__gmail:focus {
+  color: var(--color-doveGray);
+}
+
+.social__gmail:hover {
+  color: var(--color-white);
+}
+
+.social__gmail:active {
+  opacity: .7;
 }
 
 .social__album {
@@ -1436,7 +1453,11 @@ button {
   padding-top: 98.5%;
   border: 3px solid transparent;
   z-index: 1;
-  transition: background-color .3s ease-in-out, border-color .3s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  -ms-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
 }
 
 .social__foto::after {
@@ -1456,6 +1477,10 @@ button {
   background-clip: content-box;
   z-index: 2;
   opacity: 0;
+  -webkit-transition: opacity .5s ease-in-out;
+  -moz-transition: opacity .5s ease-in-out;
+  -ms-transition: opacity .5s ease-in-out;
+  -o-transition: opacity .5s ease-in-out;
   transition: opacity .5s ease-in-out;
 }
 
@@ -1473,176 +1498,6 @@ button {
   height: 100%;
   object-fit: cover;
 }
-
-/**-modal-**/
-.modal-overlay {
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  /* background-color: rgba(0, 0, 0, 0.8); */
-  background-color: rgb(6 6 6 / 71%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-height: 100vh;
-  width: 100%;
-  opacity: 0;
-  visibility: hidden;
-  /* модальный блок ездит не будет по всему сайту */
-  overflow: auto;
-  z-index: 99999;
-  transition: all 0.3s ease-in-out;
-
-}
-
-.modal {
-  background-color: #fff;
-  width: 900px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  display: none;
-}
-
-.modal-overlay--visible {
-  /*Mak*/
-  opacity: 1;
-  visibility: visible;
-  transition: all 0.3s ease-in-out;
-}
-
-.modal--visible {
-  /*Mak*/
-  display: block;
-}
-
-.modal--visible:focus {
-  /*Для Таба, открывать модальное окно. Не трогать!!!*/
-  outline: 1px solid var(--color-emerald)
-}
-
-/*.disable-scroll {
-  Mak
-  position: relative;
-  overflow: hidden;
-  height: 100vh;
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-}*/
-
-/* Чтобы модалку не прокручивало */
-.disable-scroll {
-  height: 100vh;
-  overflow: hidden;
-}
-
-.modal:target {
-  display: block;
-  pointer-events: auto;
-}
-
-.modal__js-close {
-  position: absolute;
-  top: 13px;
-  right: 13px;
-  width: 30px;
-  height: 30px;
-  transition: background-color .4s ease-in-out;
-  cursor: pointer; 
-}
-
-.modal__js-close::before {
-  content: "";
-  position: absolute;
-  top: 13px;
-  left: 5px;
-  width: 20px;
-  height: 1px;
-  background-color: var(--color-mineShaft25);
-  transform: rotate(45deg);
-  transition: background-color .4s ease-in-out;
-}
-
-.modal__js-close::after {
-  content: "";
-  position: absolute;
-  top: 3px;
-  width: 1px;
-  height: 20px;
-  background-color: var(--color-mineShaft25);
-  transform: rotate(45deg);
-  transition: background-color .4s ease-in-out;
-}
-
-.modal__js-close:focus::before, .modal__js-close:focus::after {
-  background-color: var(--color-emerald);
-}
-
-.modal__js-close:hover::before, .modal__js-close:hover::after {
-  background-color: var(--color-emerald);
-}
-
-.modal__js-close:active::before, .modal__js-close:active::after {
-  background-color: var(--color-emerald);
-}
-
-.modal__container {
-  position: relative;
-  display: flex;
-  width: 100%;
-  height: inherit;
-}
-
-.modal__picture {
-  width: 44.3%;
-}
-
-.modal__image {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.modal__title {
-  margin: 0;
-  font-size: 23px;
-  color: var(--color-black);
-}
-
-.modal__info {  
-  position: relative;
-  padding: 117px 0 16px 50px;
-  width: 50%;
-}
-
-.modal__strong {
-  display: block;
-  font-size: 15px;
-  line-height: 15px;
-  color: var(--color-black);
-}
-
-.modal__span {
-  font-family: 'Open Sans';
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 16px;
-  color: var(--color-alto);
-}
-
-.modal__descr {
-  margin: 0;
-  padding-top: 31px;
-  font-family: 'Open Sans';
-  font-weight: 400;
-  line-height: var(--gap);
-  color: var(--color-black);
-}
-/**Конец modal**/
 /*** // Социальное social-1440px ***/
 
 
@@ -2098,5 +1953,81 @@ button {
 
 
 
-/**/
+/*Модальное окно 1920px*/
+body._lock {
+  padding: 0 17px 0 0;
+  overflow: hidden;
+}
 
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  /* overflow: hidden; */
+  visibility: hidden;
+  opacity: 0;
+  transition: 1.4s;
+  z-index: 10;
+  scale: 0;
+}
+.modal._show {
+  visibility: visible;
+  /* overflow-y: auto; */
+  opacity: 1;
+  scale: 1;
+}
+.modal._show .modal__body {
+  transform: translate(0, 0);
+}
+
+.modal__body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 16px;
+  min-height: 100%;
+  transform: translate(0, 100vh);
+  transition: 0.2s;
+}
+
+.modal__content {
+  position: relative;
+  width: 450px;
+}
+
+.modal__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border-radius: 50%;
+  background-color: var(--color-white);
+  cursor: pointer;
+  outline: none;
+  -webkit-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  -ms-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.modal__close:focus {
+  background-color: var(--color-black);
+}
+
+.modal__close:focus .line {
+  stroke: var(--color-emerald);
+}
+
+.modal__close:hover {
+  background-color: var(--color-doveGray);
+  transition-duration: 0;
+}
+
+.modal__close:hover .line {
+  stroke: var(--color-white);
+  transition-duration: 0;
+}
+/* // Модальное окно 1920px*/
